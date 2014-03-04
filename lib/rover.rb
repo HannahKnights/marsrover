@@ -1,14 +1,14 @@
 class Rover
 
   def initialize(direction)
-    @direction  = direction
+    @compass  = direction
   end
 
-  attr_reader :direction
+  attr_reader :compass
 
-  def direction= direction
-    compass = ['N', 'S', 'E', 'W']
-    compass.include?(direction) ? @direction = direction : nil
+  def compass= direction
+    compass_points = ['N', 'S', 'E', 'W']
+    compass_points.include?(direction) ? @compass = direction : nil
   end
 
 
