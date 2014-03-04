@@ -10,6 +10,11 @@ describe Rover do
       expect(rover.direction).to eq 'N'
     end
 
+    it 'should be able to change direction' do
+      rover.direction = 'S'
+      expect(rover.direction).to eq 'S'
+    end
+
   end
 
 

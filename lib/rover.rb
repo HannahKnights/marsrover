@@ -4,7 +4,7 @@ class Rover
     @direction  = direction
   end
 
-  attr_reader :direction
+  attr_accessor :direction
 
 
 end
