@@ -15,6 +15,11 @@ describe Rover do
       expect(rover.direction).to eq 'S'
     end
 
+    it 'should only be able to face North, South, East or West' do
+      rover.direction = 'Z'
+      expect(rover.direction).to eq 'N'
+    end
+
   end
 
 
