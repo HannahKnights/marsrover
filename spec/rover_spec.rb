@@ -32,15 +32,20 @@ describe Rover do
 
   context 'should be able to navigate' do
 
-    it 'can rotate 90 degrees right' do
+    it 'by rotating 90 degrees right' do
       rover.set_off('R')
       expect(rover.compass).to eq 'E'
     end
 
-    it 'can rotate 90 degrees left' do
-      puts rover.compass
+    it 'by rotating 90 degrees left' do
       rover.set_off('L')
       expect(rover.compass).to eq 'W'
+    end
+
+    it 'by moving forward' do
+      expect(rover.position).to eq [1, 2]
+      rover.set_off('M')
+      expect(rover.position).to eq [1, 3]
     end
 
 

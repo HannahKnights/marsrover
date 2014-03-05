@@ -33,6 +33,18 @@ class Rover
     current == 3 ? @compass = COMPASS_POINTS[0] : @compass = COMPASS_POINTS[current + 1]
   end
 
+  def moveforward
+    @position = [ x_coord , y_coord + 1 ]
+  end
+
+  def x_coord
+    @position[0]
+  end
+
+  def y_coord
+    @position[1]
+  end
+
 end
 
 
