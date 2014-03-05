@@ -52,6 +52,16 @@ describe Rover do
       expect(rover.position).to eq [2, 2]
     end
 
+    it 'by moving forward after rotating left' do
+      rover.set_off('LM')
+      expect(rover.position).to eq [0, 2]
+    end
+
+     it 'by moving forward after rotating south' do
+      rover.set_off('RRM')
+      expect(rover.position).to eq [1, 1]
+    end
+
 
   end
 

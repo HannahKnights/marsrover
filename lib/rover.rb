@@ -41,7 +41,7 @@ class Rover
     elsif @compass == 'E'
       @position = [ x_coord + 1 , y_coord ]
     elsif @compass == 'W'
-      @position = [ x_coord + 1 , y_coord ]
+      @position = [ x_coord - 1 , y_coord ]
     end
   end
 
