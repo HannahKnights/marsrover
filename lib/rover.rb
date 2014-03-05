@@ -2,9 +2,10 @@ class Rover
 
   COMPASS_POINTS = ['N', 'E', 'S', 'W']
 
-  def initialize(direction, coordinates)
+  def initialize(direction, coordinates, mission = '')
     @compass  = direction
     @position = coordinates
+    @mission = mission
   end
 
   attr_reader :compass, :position
@@ -13,8 +14,8 @@ class Rover
     COMPASS_POINTS.include?(direction) ? @compass = direction : nil
   end
 
-  def set_off(mission)
-    route = mission.split('')
+  def set_off
+    route = @mission.split('')
     route.each do |direction|
       direction == 'M' ? moveforward : rotate(direction)
     end

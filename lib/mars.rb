@@ -24,9 +24,19 @@ class Mars
   end
 
   def create_rover(rover)
-    coords = rover.slice(0..1).split('').map {|value| value.to_i}
-    direction = rover.slice(2)
-    @rovers << Rover.new(direction, coords)
+    direction = rover.slice!(2)
+    coords = rover.slice!(0..1).split('').map {|value| value.to_i}
+    mission = rover
+    @rovers << Rover.new(direction, coords, mission)
+  end
+
+  def launch_mission
+    final_positions = []
+    rovers.each do |rover|
+      rover.set_off
+      final_positions << rover.position*'' + rover.compass
+    end
+    final_positions
   end
 
 end
