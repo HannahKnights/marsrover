@@ -62,6 +62,12 @@ describe Rover do
       expect(rover.position).to eq [1, 1]
     end
 
+    it 'complex directions' do
+      rover.set_off('LMLMLMLMM')
+      expect(rover.position).to eq [1, 3]
+      expect(rover.compass).to eq 'N'
+    end
+
 
   end
 
