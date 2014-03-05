@@ -1,5 +1,7 @@
 class Rover
 
+  COMPASS_POINTS = ['N', 'E', 'S', 'W']
+
   def initialize(direction, coordinates)
     @compass  = direction
     @position = coordinates
@@ -8,8 +10,7 @@ class Rover
   attr_reader :compass, :position
 
   def compass= direction
-    compass_points = ['N', 'S', 'E', 'W']
-    compass_points.include?(direction) ? @compass = direction : nil
+    COMPASS_POINTS.include?(direction) ? @compass = direction : nil
   end
 
   def set_off(mission)
@@ -20,9 +21,16 @@ class Rover
   end
 
   def rotate(direction)
-    compass_points = ['N', 'E', 'S', 'W']
-    current = compass_points.find_index(@compass)
-    direction == 'R' ? @compass = compass_points[current + 1] : compass=compass_points[current - 1]
+    current = COMPASS_POINTS.find_index(@compass)
+    direction == 'R' ? right(current) : left(current)
+  end
+
+  def left(current)
+    current == 0 ? @compass = COMPASS_POINTS[3] : @compass = COMPASS_POINTS[current - 1]
+  end
+
+  def right(current)
+    current == 3 ? @compass = COMPASS_POINTS[0] : @compass = COMPASS_POINTS[current + 1]
   end
 
 end

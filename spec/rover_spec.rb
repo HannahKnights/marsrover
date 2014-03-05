@@ -37,6 +37,12 @@ describe Rover do
       expect(rover.compass).to eq 'E'
     end
 
+    it 'can rotate 90 degrees left' do
+      puts rover.compass
+      rover.set_off('L')
+      expect(rover.compass).to eq 'W'
+    end
+
 
   end
 
