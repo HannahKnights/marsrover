@@ -34,7 +34,15 @@ class Rover
   end
 
   def moveforward
-    @position = [ x_coord , y_coord + 1 ]
+    if @compass == 'N'
+      @position = [ x_coord , y_coord + 1 ]
+    elsif @compass == 'S'
+      @position = [ x_coord , y_coord - 1 ]
+    elsif @compass == 'E'
+      @position = [ x_coord + 1 , y_coord ]
+    elsif @compass == 'W'
+      @position = [ x_coord + 1 , y_coord ]
+    end
   end
 
   def x_coord
