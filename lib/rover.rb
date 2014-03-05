@@ -8,7 +8,7 @@ class Rover
     @mission = mission
   end
 
-  attr_reader :compass, :position
+  attr_reader :compass, :position, :mission
 
   def compass= direction
     COMPASS_POINTS.include?(direction) ? @compass = direction : nil
@@ -55,8 +55,3 @@ class Rover
   end
 
 end
-
-
-
-
-

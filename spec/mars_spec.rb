@@ -4,7 +4,7 @@ describe Mars do
 
   let(:mars) { Mars.new('55','12NLMLMLMLMM33EMMRMMRMRRM')}
 
-  context 'should set its own size' do
+  context 'should set its own size on creation' do
 
     it 'should be a 6 by 6 grid' do
       expect(mars.plateau.length).to eq 6
@@ -26,7 +26,11 @@ describe Mars do
 
   end
 
-  context 'completing missions' do
+  context 'launching and completing missions' do
+
+    it 'rovers should know their missions' do
+      expect(mars.rovers[0].mission).to eq 'LMLMLMLMM'
+    end
 
     it 'should know the finishing position of the rovers' do
       expect(mars.launch_mission).to eq(['13N', '51E'])

@@ -2,11 +2,15 @@ require_relative '../lib/rover'
 
 describe Rover do
   
-  context 'should know what direction it is facing' do
+  context 'orientation' do
     
     let (:rover) { Rover.new('N', [1, 2]) }
 
-    it 'should be facing northwards' do
+    it 'should know what co-ordinate it is at' do
+      expect(rover.position).to eq [1, 2]
+    end
+
+    it 'should know it is facing northwards' do
       expect(rover.compass).to eq 'N'
     end
 
@@ -18,16 +22,6 @@ describe Rover do
     it 'should only be able to face North, South, East or West' do
       rover.compass = 'Z'
       expect(rover.compass).to eq 'N'
-    end
-
-  end
-
-  context 'knowing what co-ordinates it is at' do
-
-    let (:rover) { Rover.new('N', [1, 2]) }
-
-    it 'when starting' do
-      expect(rover.position).to eq [1, 2]
     end
 
   end
