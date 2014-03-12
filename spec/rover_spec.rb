@@ -11,17 +11,17 @@ describe Rover do
     end
 
     it 'should know it is facing northwards' do
-      expect(rover.compass).to eq 'N'
+      expect(rover.orientation).to eq 'N'
     end
 
     it 'should be able to change direction' do
-      rover.compass = 'S'
-      expect(rover.compass).to eq 'S'
+      rover.orientation = 'S'
+      expect(rover.orientation).to eq 'S'
     end
 
     it 'should only be able to face North, South, East or West' do
-      rover.compass = 'Z'
-      expect(rover.compass).to eq 'N'
+      rover.orientation = 'Z'
+      expect(rover.orientation).to eq 'N'
     end
 
   end
@@ -31,13 +31,13 @@ describe Rover do
     it 'by rotating 90 degrees right' do
       rover = Rover.new('N', [1,2], 'R')
       rover.set_off
-      expect(rover.compass).to eq 'E'
+      expect(rover.orientation).to eq 'E'
     end
 
     it 'by rotating 90 degrees left' do
       rover = Rover.new('N', [1,2], 'L')
       rover.set_off
-      expect(rover.compass).to eq 'W'
+      expect(rover.orientation).to eq 'W'
     end
 
     it 'by moving forward' do
@@ -68,7 +68,7 @@ describe Rover do
       rover = Rover.new('N', [1,2], 'LMLMLMLMM')
       rover.set_off
       expect(rover.position).to eq [1, 3]
-      expect(rover.compass).to eq 'N'
+      expect(rover.orientation).to eq 'N'
     end
 
   end

@@ -33,7 +33,7 @@ class Mars
   def launch_mission
     rovers.map do |rover|
       rover.set_off
-      rover.position*'' + rover.compass
+      rover.position*'' + rover.orientation
     end
   end
 
