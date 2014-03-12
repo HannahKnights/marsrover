@@ -2,16 +2,16 @@ class Rover
 
   COMPASS_MAP = {'N' => [ 0 , 1 ], 'E' => [ 1, 0 ], 'S' => [ 0 , -1 ], 'W' => [ -1 , 0 ]}
 
-  def initialize(direction, coordinates, mission = '')
-    @orientation = direction
+  def initialize(orientation, coordinates, mission = '')
+    @orientation = orientation
     @position = coordinates
     @mission = mission
   end
 
   attr_reader :orientation, :position, :mission
 
-  def orientation= direction
-    COMPASS_MAP.has_key?(direction) ? @orientation = direction : nil
+  def orientation= orientation
+    COMPASS_MAP.has_key?(orientation) ? @orientation = orientation : nil
   end
 
   def set_off
