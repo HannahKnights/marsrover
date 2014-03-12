@@ -6,8 +6,6 @@ class Rover
     @compass  = direction
     @position = coordinates
     @mission = mission
-    @x_coord = @position[0]
-    @y_coord = @position[1]
   end
 
   attr_reader :compass, :position, :mission
@@ -24,16 +22,10 @@ class Rover
   end
 
   def rotate(direction)
-    current = COMPASS_POINTS.keys.to_a.find_index(@compass)
-    direction == 'R' ? right(current) : left(current)
-  end
-
-  def left(current)
-    current == 0 ? @compass = COMPASS_POINTS.keys.to_a[3] : @compass = COMPASS_POINTS.keys.to_a[current - 1]
-  end
-
-  def right(current)
-    current == 3 ? @compass = COMPASS_POINTS.keys.to_a[0] : @compass = COMPASS_POINTS.keys.to_a[current + 1]
+    comp = COMPASS_POINTS.keys.to_a
+    direction == 'L' ? comp.reverse! : nil
+    current = comp.find_index(@compass)
+    current == 3 ? @compass = comp[0] : @compass = comp[current + 1]
   end
 
   def move_forward
