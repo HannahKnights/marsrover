@@ -31,12 +31,10 @@ class Mars
   end
 
   def launch_mission
-    final_positions = []
-    rovers.each do |rover|
+    rovers.map do |rover|
       rover.set_off
-      final_positions << rover.position*'' + rover.compass
+      rover.position*'' + rover.compass
     end
-    final_positions
   end
 
 end

@@ -20,7 +20,7 @@ describe Mars do
       expect(rover.position).to eq([1, 2])
     end
 
-    it 'should be able to have many rovers' do
+    it 'should be able to initiate many rovers' do
       expect(mars.rovers.length). to eq 2
     end
 
